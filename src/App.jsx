@@ -3,6 +3,8 @@ import './App.css'
 
 import {EyeOutlined,LikeOutlined,ArrowLeftOutlined} from '@ant-design/icons';
 
+import {getVideoDetails} from './api'
+
 const data = {
   name : "Video Name",
   description:`
@@ -40,34 +42,44 @@ const MyIcon=({name,value})=>{
 function App() {
 
   const [showLess,setShowLess] = useState(true)
+  const [videoDetails,setVideoDetails] = useState(null)
+
+  useEffect(()=>{
+    getVideoDetails("EXTGQERBuHo")
+    .then(res=>{
+      setVideoDetails(res)
+    })
+  },[])
 
   return (
-    <div className="search-container">
-      <div className="search-left">
-        <div className='heading'>
-          <div className='go-back'><ArrowLeftOutlined /></div>
-          <h2>{data.name}</h2>
-        </div>
-        <div className="icons-container">
-          <MyIcon name="views" value={data.views}/>
-          <MyIcon name="likes" value={data.likes}/>
-        </div>
-        <div className='description-container'>
-          <div className="description">
-            {
-            showLess?
-              data.description.slice(0,200)
-            :
-              data.description
-            }
-            {" "}<span className='description-action' onClick={()=>{
-              setShowLess(!showLess)
-            }}>{showLess ? "Show More" : "Show Less"}</span>
+    <>
+      {videoDetails&&<div className="search-container">
+        <div className="search-left">
+          <div className='heading'>
+            <div className='go-back'><ArrowLeftOutlined /></div>
+            <h2>{videoDetails.name}</h2>
+          </div>
+          <div className="icons-container">
+            <MyIcon name="views" value={videoDetails.views}/>
+            <MyIcon name="likes" value={videoDetails.likes}/>
+          </div>
+          <div className='description-container'>
+            <div className="description">
+              {
+              showLess?
+                videoDetails.description.slice(0,200)
+              :
+                videoDetails.description
+              }
+              {" "}<span className='description-action' onClick={()=>{
+                setShowLess(!showLess)
+              }}>{showLess ? "Show More" : "Show Less"}</span>
+            </div>
           </div>
         </div>
-      </div>
-      <div className="search-right"></div>
-    </div>
+        <div className="search-right"></div>
+      </div>}
+    </>
   )
 }
 
