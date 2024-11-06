@@ -1,3 +1,7 @@
+// I Know its bad practice to plainely api keys in your code,
+// I left it here so you can easily pull and execute my code with minimal setup
+
+
 const API_KEY = 'AIzaSyBc_ypkHYMOvgRIK9MmDCgxsfKjzW24kpg';
 
 // Function to get video details
