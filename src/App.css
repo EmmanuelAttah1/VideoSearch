@@ -13,8 +13,11 @@ body{
 }
 
 #root {
- width: 800px;
+ width: 900px;
  height: 100%;
+ display: flex;
+ align-items: center;
+ justify-content: center;
 }
 
 .logo {
@@ -58,17 +61,17 @@ body{
 
 .heading{
   display: flex;
-  align-items: center;
   gap: 15px;
 }
 
 .go-back{
+  padding-top: 10px;
   cursor: pointer;
 }
 
 .search-container{
   display: grid;
-  grid-template-columns: 4fr 2fr;
+  grid-template-columns: 4fr 3fr;
   gap:30px;
   width: 100%;
   height: 100%;
@@ -81,9 +84,13 @@ body{
 }
 
 .search-right{
-  background-color: #e8e6e68b;
- border-radius: 10px;
- overflow: auto;
+  border-left: 1px solid #d8cfcfd1;
+  overflow: auto;
+  padding: 20px;
+}
+
+.search-right h4{
+  margin-bottom: 20px;
 }
 
 .icons-container{
@@ -118,4 +125,86 @@ body{
   font-size: 12px;
   color: #888;
   cursor: pointer;
+}
+
+/* comments */
+
+.comment{
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+  justify-content: space-between;
+}
+
+.comment-right{
+  width: 100%;
+}
+
+.author-image-container img{
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.comment-bottom{
+  display: flex;
+  justify-content: space-between;
+}
+
+.comment-date{
+  font-size: 12px;
+}
+
+.comment-text{
+  font-size: 13px;
+}
+
+.btn-container{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-container button{
+  font-size: 12px;
+}
+
+
+/* Search */
+
+.searchContainer{
+  width:600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+@media screen and (max-width: 900px) {
+  #root{
+    width: 100%;
+  }
+
+  .searchContainer{
+    width: 100%;
+    padding: 0px 20px;
+  }
+
+  h1{
+    font-size: 25px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .search-container{
+    display: block;
+    overflow: auto;
+  }
+
+  .search-container div{
+    height: auto;
+  }
 }

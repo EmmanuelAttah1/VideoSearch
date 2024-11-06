@@ -30,3 +30,43 @@ export async function getVideoDetails(videoId) {
         return null
     }
 }
+
+
+export async function getVideoComments(videoId, pageToken = '', maxResults = 10) {
+    const url = `https://www.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=${videoId}&key=${API_KEY}&maxResults=${maxResults}&pageToken=${pageToken}`;
+
+    try {
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error('Failed to fetch comments');
+        }
+
+        const data = await response.json();
+
+        // console.log(data);
+        
+
+        // Extract comments and pagination details
+        const comments = data.items.map(item => {
+            const comment = item.snippet.topLevelComment.snippet;
+            // console.log(comment);
+            
+            return {
+                author: comment.authorDisplayName,
+                pic:comment.authorProfileImageUrl,
+                text: comment.textDisplay,
+                likeCount: comment.likeCount,
+                publishedAt: comment.publishedAt.split("T")[0],
+            };
+        });
+
+
+        return {
+            comments: comments,
+            nextPageToken: data.nextPageToken || null,  // For pagination
+        };
+    } catch (error) {
+        console.error('Error fetching comments:', error);
+        return null;
+    }
+}
