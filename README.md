@@ -2,6 +2,10 @@
 
 This project uses the YouTube Data API to fetch details and comments from a specified YouTube video. Built with Vite and ReactJS, the app fetches video details and loads all top-level comments in a scalable manner, gracefully handling API rate limits and errors.
 
+## Live Demo
+
+Check out the live version of the project here: [YouTube Video Search - Live](http://54.146.151.169:3000/)
+
 ## Features
 
 1. **Video Details Fetching**: Retrieves video details like title, description, view count, and like count.
@@ -70,6 +74,11 @@ This will create a `dist` folder with optimized production-ready files.
   - **components/**: Contains UI components (e.g., Comment, MyIcon).
   - **pages/**: Contains the video search page and video details page.
   - **api.js**: Handles API integration with the YouTube Data API.
+
+## API Rate Limiting and Error Handling
+
+- **Rate Limits**: The app includes handling for API rate limits to stay within the YouTube Data API’s request quotas.
+- **Error Handling**: Errors from the YouTube API are logged, and the user receives feedback if data cannot be fetched.
 
 ## Known Limitations
 
