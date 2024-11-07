@@ -4,7 +4,7 @@ This project uses the YouTube Data API to fetch details and comments from a spec
 
 ## Live Demo
 
-Check out the live version of the project here: [YouTube Video Search - Live](http://54.146.151.169:3000/)
+Check out the live version of the project here: [YouTube Video Search - Live](http://54.196.207.94:3000/)
 
 ## Features
 
