@@ -2,7 +2,7 @@
 // I left it here so you can easily pull and execute my code with minimal setup
 
 
-const API_KEY = 'AIzaSyBc_ypkHYMOvgRIK9MmDCgxsfKjzW24kpg';
+const API_KEY = import.meta.env.VITE_YOUTUBE_KEY
 
 // Function to get video details
 export async function getVideoDetails(videoId) {
