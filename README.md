@@ -21,6 +21,7 @@ This project uses the YouTube Data API to fetch details and comments from a spec
 ### Prerequisites
 
 1. **Node.js**: Ensure you have Node.js installed (v14 or higher is recommended).
+2. **YouTube Data API Key**: Obtain an API key from the [Google Cloud Console](https://console.cloud.google.com/).
 
 ### Installation
 
@@ -35,15 +36,19 @@ This project uses the YouTube Data API to fetch details and comments from a spec
    npm install
    ```
 
-3. **Run the Application**
+3. **Set Up Environment Variables**
+   - Create a `.env` file in the root directory and add your API key:
+     ```env
+     VITE_YOUTUBE_KEY=YOUR_YOUTUBE_API_KEY
+     ```
+
+4. **Run the Application**
    Start the development server:
    ```bash
    npm run dev
    ```
 
    The app will be available at `http://localhost:5173`.
-
-> **Note**: The YouTube Data API key is hardcoded for ease of setup, so no additional configuration is required to run the project.
 
 ### Build for Production
 
@@ -63,16 +68,13 @@ This will create a `dist` folder with optimized production-ready files.
 
 - **src/**
   - **components/**: Contains UI components (e.g., Comment, MyIcon).
-  - **pages/**: Contains Search video page and video details page
-  - **api.js**: API integration for YouTube Data API.
-
+  - **pages/**: Contains the video search page and video details page.
+  - **api.js**: Handles API integration with the YouTube Data API.
 
 ## Known Limitations
 
 - **Comment Replies**: Only top-level comments are fetched; replies to comments are not included as per the task requirements.
 
-
-
 ## Contact
 
-For any questions or feedback, feel free to contact me at [attahzuzu@gmail.com] 
+For any questions or feedback, feel free to contact me at [attahzuzu@gmail.com].
